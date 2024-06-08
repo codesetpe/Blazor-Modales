@@ -1,0 +1,27 @@
+﻿
+<link href="g:\blazor practicas\ventanamodal\ventanamodal\modals\modalsimple.razor.css" rel="stylesheet" />
+
+<div class="VentanaFondo">
+	<div class="VentanaPrincipal">
+		<div class="titulo">Tabla de contenido
+			<span class="miclose" @onclick="CloseOnClick">&times;</span>
+		</div>
+		<div class="modal-body">
+			<span>
+				Los índices y tablas de contenido y de ilustraciones son muy útiles cuando estamos trabajando con documentos extensos. De un documento bien planificado y estructurado podemos extraer una tabla de contenidos que facilite enormemente la localización rápida de algún punto importante del documento. Del mismo modo, si tenemos muchas ilustraciones, podemos generar una tabla de ilustraciones a partir de los títulos o descripciones al pie de las mismas.
+
+			</span>
+
+		</div>
+		
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public EventCallback<bool> NotifyModalCloseStatus { get; set; }
+	private async Task CloseOnClick()
+	{
+		NotifyModalCloseStatus.InvokeAsync(false);
+	}
+}

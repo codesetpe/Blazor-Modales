@@ -1,0 +1,27 @@
+﻿@page "/modales"
+
+<PageTitle>Ventanas Modales</PageTitle>
+
+<h3>Modales</h3>
+
+<button class="btn btn-primary" @onclick="ShowVentanaPrincipal">Modal Simple</button>
+
+@if (lPrincipalVisible)
+{
+    <ModalSimple NotifyModalCloseStatus="@SetModalCloseStatus" />  
+
+}
+
+@code {
+
+    private bool lPrincipalVisible = false;
+
+    private void ShowVentanaPrincipal()
+    {        
+        lPrincipalVisible = true;
+    }
+    private void SetModalCloseStatus(bool value)
+    {
+        lPrincipalVisible = value;
+    }
+}
